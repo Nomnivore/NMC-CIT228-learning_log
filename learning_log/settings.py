@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d4_)+2kkn5i)&pzpftw-l4)k4*2%gbxnp&w7lg5t2bzjy5b+m='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+if os.environ.get('DEBUG') == "FALSE":
+    DEBUG = False
+else:
+    DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
